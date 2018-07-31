@@ -43,7 +43,7 @@ class PCRERegex : public Regex
 	{
 		const char* error;
 		int erroffset;
-		regex = pcre_compile(rx.c_str(), 0, &error, &erroffset, NULL);
+		regex = pcre_compile(rx.c_str(), PCRE_CASELESS, &error, &erroffset, NULL);
 		if (!regex)
 		{
 			ServerInstance->Logs->Log(MODNAME, LOG_DEBUG, "pcre_compile failed: /%s/ [%d] %s", rx.c_str(), erroffset, error);
